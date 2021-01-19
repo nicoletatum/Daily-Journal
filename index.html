@@ -6,21 +6,76 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/main.css">
 </head>
+
 <body>
     <header>
-        <section>
+        <section class="logo">
             <img src="./images/daily-journal-logo.png" alt="Website Logo">
         </section>
-        <section>
-            <p>Daily Journal</p>
-            <p>Nicole Tatum</p>
+        <section class="journalName">
+            <h1>Nicole Tatum's</h1>
+            <h1>Daily Journal</h1>
         </section>
     </header>
-    <main>
 
+    <main>
+        <section class="journalEntryForm">
+            <h2>DailyJournal</h2>
+            <form action="">
+                <fieldset>
+                    <label for="journalDate"> Date of Entry </label>
+                    <input type="date" name="journalDate" id="journalDate"> 
+                </fieldset>
+            </form>
+            <form action="">
+                <fieldset>
+                    Concepts covered:
+                    <input type="text"  name="concepts" id="concepts">
+                </fieldset>    
+            </form>
+        </section>
+        <section class="journalEntries">
+            <form action="">
+               <fieldset>
+              Journal Entry:    
+              <input type="textarea" size="50em" name="journalEntry" id="journalEntry"> 
+               </fieldset>
+            </form>
+        </section>
+        <form action="">
+          <fieldset>
+            Mood: 
+            <select name="mood" id="mood"> 
+                <option value=""> Optomistic</option>
+                <option value=""> Accomplished </option>
+                <option value=""> Fine </option>
+                <option value=""> Frustrated </option>
+                <option value=""> Completely Lost </option>
+                <option value=""> Despair </option>
+            </select>
+         </fieldset>
+         <button>Record Journal Entry</button>
+
+        </form>
+
+
+
+
+
+        <aside class="journalList">
+
+        </aside>
     </main>
     <footer>
-
+        <section>
+            <p>Nicole Tatum</p>
+        </section>
+        <section>
+            <a href="#"> GitHub Link</a>
+        </section>
+        <section>
+            <p> © </p>
+        </section>
     </footer>
 </body>
 </html>
