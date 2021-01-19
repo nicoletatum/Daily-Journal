@@ -1,1 +1,7 @@
 @import url("./head.css");
+@import url("./foot.css");
+
+
+body{
+    background-color: rgb(255, 214, 221);
+}
