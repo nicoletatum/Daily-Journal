@@ -2,17 +2,22 @@ header{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
-    background-color: pink;
-    border-radius: 20px;
+    /* justify-content: space-evenly; */
+    background-color: rgba(255, 192, 203, 0.74);
+    width:100%;
+}
+img{
+    display: flex;
+    max-width: 7em;
+    margin-right: 3em;
 }
 
-
-
 .journalName{
+    display: flex;
     text-align: center;
     align-self: center;
-    flex-grow: .5;
-    background-color: rgba(255, 255, 255, 0.158);
+    margin:0em 1em 0em 2em;
+    color:rgb(90, 63, 68);
+    /* background-color: rgba(255, 255, 255, 0.158); */
     border-radius: 20px;
 }
