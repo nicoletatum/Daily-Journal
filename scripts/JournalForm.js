@@ -1,9 +1,14 @@
 import { saveEntry } from "./JournalDataProvider.js"
+import { getMoods, useMoods } from "./MoodProvider.js"
 
 const contentTarget = document.querySelector(".journalEntryForm")
 const eventHub = document.querySelector(".container")
 
 export const journalFormComponent = (entriesArray) => {
+    getMoods()
+    .then(() => {
+        const moods = useMoods()
+
     contentTarget.innerHTML = `
     <h3>Record Today's Entry</h3>
     <form action="">
@@ -20,19 +25,19 @@ export const journalFormComponent = (entriesArray) => {
             <input type="textarea" size="30em" name="journalEntry" id="journalEntry"> 
         </fieldset>
         <fieldset>
-            Mood: <select name="mood" id="mood"> 
-                <option value=""> Optimistic</option>
-                <option value=""> Accomplished </option>
-                <option value=""> Fine </option>
-                <option value=""> Frustrated </option>
-                <option value=""> Completely Lost </option>
-                <option value=""> Despair </option>
+            Mood: <select name="mood" id="moods"> 
+            ${allMoods.map(
+                    (mood) => {
+                        return `<option value="${ mood.id }">${ mood.label }</option>`
+                    }
+                ).join("")
+            }
             </select> 
         </fieldset>
     <button id="saveEntryButton">Save Entry</button>
 </form>
-    
-    `
+    ` 
+    })
 }
 
 eventHub.addEventListener("click", event => {
@@ -43,8 +48,15 @@ eventHub.addEventListener("click", event => {
             "date":`${document.getElementById("journalDate").value}`,
             "concept":`${document.getElementById("journalConcepts").value}`,
             "entry":`${document.getElementById("journalEntry").value}`,
-            "mood":`${document.getElementById("mood").value}`
+            "moodId":`${document.getElementById("moods").value}`
         }
         saveEntry(newEntry)
     }
 })
+
+{/* <option value=""> Optimistic</option>
+<option value=""> Accomplished </option>
+<option value=""> Fine </option>
+<option value=""> Frustrated </option>
+<option value=""> Completely Lost </option>
+<option value=""> Despair </option> */}

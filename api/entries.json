@@ -1,32 +1,13 @@
 {
   "entries": [
-    {
-      "date": "2021-01-22",
-      "concept": "sdfasd",
-      "entry": "sdfasd",
-      "mood": "",
-      "id": 1
-    },
-    {
-      "date": "2021-01-22",
-      "concept": "sdfasd",
-      "entry": "sdfasd",
-      "mood": "",
-      "id": 2
-    },
-    {
-      "date": "2021-01-22",
-      "concept": "sdfasd",
-      "entry": "sdfasd",
-      "mood": "",
-      "id": 3
-    },
-    {
-      "date": "2021-01-22",
-      "concept": "sdfasd",
-      "entry": "sdfasd",
-      "mood": "",
-      "id": 4
+    "id": 18,
+    "concept": "Array methods",
+    "date": "07/24/2018",
+    "entry": "We learned about array methods, but only forEach made sense",
+    "moodId": 1,
+    "mood": {
+        "id": 1,
+        "label": "Ok"
     }
   ]
 }
