@@ -7,7 +7,8 @@ const eventHub = document.querySelector(".container")
 export const journalFormComponent = (entriesArray) => {
     getMoods()
     .then(() => {
-        const moods = useMoods()
+        const allMoods = useMoods()
+        // console.log(moods)
 
     contentTarget.innerHTML = `
     <h3>Record Today's Entry</h3>
@@ -25,7 +26,7 @@ export const journalFormComponent = (entriesArray) => {
             <input type="textarea" size="30em" name="journalEntry" id="journalEntry"> 
         </fieldset>
         <fieldset>
-            Mood: <select name="mood" id="moods"> 
+            Mood: <select name="mood" id="mood"> 
             ${allMoods.map(
                     (mood) => {
                         return `<option value="${ mood.id }">${ mood.label }</option>`
@@ -48,15 +49,8 @@ eventHub.addEventListener("click", event => {
             "date":`${document.getElementById("journalDate").value}`,
             "concept":`${document.getElementById("journalConcepts").value}`,
             "entry":`${document.getElementById("journalEntry").value}`,
-            "moodId":`${document.getElementById("moods").value}`
+            "moodId":`${document.getElementById("mood").value}`
         }
         saveEntry(newEntry)
     }
 })
-
-{/* <option value=""> Optimistic</option>
-<option value=""> Accomplished </option>
-<option value=""> Fine </option>
-<option value=""> Frustrated </option>
-<option value=""> Completely Lost </option>
-<option value=""> Despair </option> */}
