@@ -7,5 +7,4 @@ export const getMoods = () => {
         moods = parsedMoods
     })
 }
-console.log(moods)
 export const useMoods = () => moods.slice()

@@ -1,6 +1,6 @@
-import { useEntries, getEntries } from "./JournalDataProvider.js"
+import { useEntries, getEntries, deleteEntry } from "./JournalDataProvider.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
-import { getMoods, useMoods } from "./MoodProvider.js"
+import { getMoods, useMoods } from "../Mood/MoodProvider.js"
 
 const eventHub = document.querySelector(".container")
 const entryLog = document.querySelector(".entryFormContainer")
@@ -24,4 +24,17 @@ export const EntryListComponent = () => {
 
 eventHub.addEventListener("journalStateChanged", e => {
     EntryListComponent()
+})
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+        const [prefix, id] = clickEvent.target.id.split("--")   
+        deleteEntry(id).then(
+            () => {
+                const newEntryList = useEntries()
+                const moods = useMoods()
+                render (newEntryList, moods)
+            }
+        )
+    }
 })

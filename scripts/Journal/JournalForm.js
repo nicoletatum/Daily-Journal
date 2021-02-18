@@ -1,5 +1,5 @@
 import { saveEntry } from "./JournalDataProvider.js"
-import { getMoods, useMoods } from "./MoodProvider.js"
+import { getMoods, useMoods } from "../Mood/MoodProvider.js"
 
 const contentTarget = document.querySelector(".journalEntryForm")
 const eventHub = document.querySelector(".container")
