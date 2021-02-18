@@ -1,9 +1,15 @@
 import { saveEntry } from "./JournalDataProvider.js"
+import { getMoods, useMoods } from "./MoodProvider.js"
 
 const contentTarget = document.querySelector(".journalEntryForm")
 const eventHub = document.querySelector(".container")
 
 export const journalFormComponent = (entriesArray) => {
+    getMoods()
+    .then(() => {
+        const allMoods = useMoods()
+        // console.log(moods)
+
     contentTarget.innerHTML = `
     <h3>Record Today's Entry</h3>
     <form action="">
@@ -21,18 +27,18 @@ export const journalFormComponent = (entriesArray) => {
         </fieldset>
         <fieldset>
             Mood: <select name="mood" id="mood"> 
-                <option value=""> Optimistic</option>
-                <option value=""> Accomplished </option>
-                <option value=""> Fine </option>
-                <option value=""> Frustrated </option>
-                <option value=""> Completely Lost </option>
-                <option value=""> Despair </option>
+            ${allMoods.map(
+                    (mood) => {
+                        return `<option value="${ mood.id }">${ mood.label }</option>`
+                    }
+                ).join("")
+            }
             </select> 
         </fieldset>
     <button id="saveEntryButton">Save Entry</button>
 </form>
-    
-    `
+    ` 
+    })
 }
 
 eventHub.addEventListener("click", event => {
@@ -43,7 +49,7 @@ eventHub.addEventListener("click", event => {
             "date":`${document.getElementById("journalDate").value}`,
             "concept":`${document.getElementById("journalConcepts").value}`,
             "entry":`${document.getElementById("journalEntry").value}`,
-            "mood":`${document.getElementById("mood").value}`
+            "moodId":`${document.getElementById("mood").value}`
         }
         saveEntry(newEntry)
     }

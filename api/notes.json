@@ -1,0 +1,44 @@
+{
+  "entries": [
+    {
+      "date": "2021-02-04",
+      "concept": "sad",
+      "entry": "sad",
+      "moodId": "5",
+      "id": 25
+    },
+    {
+      "date": "2021-02-18",
+      "concept": "cry",
+      "entry": "i cry",
+      "moodId": "2",
+      "id": 26
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Proud"
+    },
+    {
+      "id": 2,
+      "label": "Optomistic"
+    },
+    {
+      "id": 3,
+      "label": "Fine"
+    },
+    {
+      "id": 4,
+      "label": "Frustrated"
+    },
+    {
+      "id": 5,
+      "label": "Lost"
+    },
+    {
+      "id": 6,
+      "label": "All of the above"
+    }
+  ]
+}
